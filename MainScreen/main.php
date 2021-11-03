@@ -7,11 +7,12 @@ $result=ProductControl::getInstance()->res;
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+<script src="main.js"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="buttonStyle.css">
 <link rel="stylesheet" href="products.css">
-<script src="main.js"></script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,9 +23,9 @@ $result=ProductControl::getInstance()->res;
 
 <div id="body">
 <div id="Section1">
-    <button class="button" id="ButtonFunc" >Add</button>
-    <button class="button" id="ButtonFunc" >Delete</button>
-    <button class="button" id="ButtonFunc" >Update</button>
+    <button class="button addDugme" id="ButtonFunc" >Add</button>
+    <button class="button deleteDugme" id="ButtonFunc" >Delete</button>
+    <button class="button updateDugme" id="ButtonFunc" >Update</button>
 </div>
 <div id="Section2">
 <div id="Content">
