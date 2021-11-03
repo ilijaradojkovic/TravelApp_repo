@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    $("#signUp").click(function(e){
+        window.location.href="http://localhost/ItehDomaci/Domaci1/SignUp/";
+    });
 
 $("#LoginForm").submit(function(e){
     e.preventDefault();
@@ -26,4 +29,6 @@ window.location.replace("http://localhost/ItehDomaci/Domaci1/MainScreen/main.php
    });
     
 });
+
+
 });

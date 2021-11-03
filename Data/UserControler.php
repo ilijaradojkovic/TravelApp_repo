@@ -25,7 +25,13 @@ class UserControler implements IUser{
     }
     //Overrides
    public function tryToRegister($username,$password,$passwordRepeat){
+    if($password!=$passwordRepeat) return -1;
 
+
+        $query="INSERT INTO users(username,password) VALUES('$username','$password')";
+        $result=Database::getInstance()->conn->query($query);
+        if($result) return 1 ;
+        else return -1;
     }
     
 }
