@@ -1,8 +1,8 @@
 
 $(document).ready(function(){
     $(".addDugme").click(function(){
-
-        console.log("add");
+        showDialog();
+       
     });
     $(".deleteDugme").click(function(){
     
@@ -12,4 +12,22 @@ $(document).ready(function(){
     
         console.log("update");
     });
+
+    $(".save").click(function(){
+        console.log("save clicked");
+    })
+    $(".close").click(function(){   
+
+        CloseDialog();
+    });
+    function showDialog(){
+       
+       $(".Container").addClass("active");
+     $(".bcg").addClass("active");
+    }
+    function CloseDialog(){
+        
+        $(".Container").removeClass("active");
+      $(".bcg").removeClass("active");
+     }
 });

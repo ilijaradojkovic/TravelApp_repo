@@ -11,6 +11,7 @@ $result=ProductControl::getInstance()->res;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
 <script src="main.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../dialog/style.css">
 <link rel="stylesheet" href="buttonStyle.css">
 <link rel="stylesheet" href="products.css">
 
@@ -27,8 +28,30 @@ $result=ProductControl::getInstance()->res;
     <button class="button deleteDugme" id="ButtonFunc" >Delete</button>
     <button class="button updateDugme" id="ButtonFunc" >Update</button>
 </div>
+<div class="bcg"></div>
+<div id="parentContainer">
+
+<div class="Container">
+            
+            <div id="Section1D">
+                <form id="form">
+                    <input id="text-field" name="Ime" type="text" class="form-control" placeholder="Ime" required>
+                    <input id="text-field" name="Cena" type="text" class="form-control" placeholder="Cena" required>
+                    <input id="text-field" name="DrzavaID" type="text" class="form-control" placeholder="DrzavaID" required>
+                </form>
+            </div>
+            <div id="Section2D">
+                <button class="button save" id="ButtonFunc" >Save</button>
+                
+                <button class="button close" id="ButtonFunc" >Close</button>
+
+            </div>
+</div>
+</div>
+
 <div id="Section2">
-<div id="Content">
+    <div id="Content">
+    
 <?php if($result!=null) while($r=$result->fetch_array()):?>
     <div class="card mx-auto col-md-3 col-10 mt-5"> 
         <img class='mx-auto img-thumbnail' src="istockphoto-1272766574-170667a.jpg" width="auto" height="auto" />
