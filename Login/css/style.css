@@ -7939,8 +7939,7 @@ button.bg-dark:focus {
 @media (min-width: 768px) {
   .text-md-left {
     text-align: left !important; }
-  .text-md-right {
-    text-align: right !important; }
+
   .text-md-center {
     text-align: center !important; } }
 
@@ -8264,26 +8263,9 @@ h1, h2, h3, h4, h5,
 textarea.form-control {
   height: inherit !important; }
 
-.checkbox-wrap {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
 
-/* Hide the browser's default checkbox */
-.checkbox-wrap input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0; }
+
+
 
 /* Create a custom checkbox */
 .checkmark {
@@ -8308,12 +8290,6 @@ textarea.form-control {
       -o-transition: none;
       transition: none; } }
 
-/* Show the checkmark when checked */
-.checkbox-wrap input:checked ~ .checkmark:after {
-  display: block;
-  content: "\f14a";
-  font-family: "FontAwesome";
-  color: rgba(0, 0, 0, 0.2); }
 
 /* Style the checkmark/indicator */
 .checkbox-primary {
