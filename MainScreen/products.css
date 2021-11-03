@@ -32,8 +32,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-    border:solid white 2px;
-    border-radius: 10px;
+  
+   
     
 }   
 
@@ -54,7 +54,7 @@
 
 .card {
     width: fit-content;
-    
+ 
 }
 
 .card-body {
