@@ -11,10 +11,11 @@
     color: gold;
     font-size: 30px;
 }
-#Button{
+#Buttons{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
+
     
  
 }

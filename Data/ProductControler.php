@@ -6,6 +6,7 @@ class ProductControl implements IProducts{
   
     private static  $instance=null;
      public $res ;
+     public $drzave;
 
     private function __construct()
     {
@@ -18,17 +19,29 @@ class ProductControl implements IProducts{
    
     }
 
-    function insertGrad(){
-
+    public function getAllDrzave()
+    {
+        $query="SELECT * from drzava";
+        $this->drzave=Database::getInstance()->conn->query($query);
+        
+    }
+    function insertGrad($ImeGrada,$Cena,$DrzavaID){
+        $query ="INSERT INTO grad(Ime,Cena,DrzavaID) VALUES('$ImeGrada','$Cena','$DrzavaID')";
+        if(Database::getInstance()->conn->query($query)) return 1;
+        else return -1;
     }
     function updateGrad(){
 
     }
-    function deleteGrad(){
+    function deleteGrad($id){
+        $query="DELETE FROM grad WHERE GradID='$id'";
+        if(Database::getInstance()->conn->query($query)) return 1;
+        else return -1;
 
     }
     function getAllGradovi(){
-        $query="Select * from grad";
+
+        $query="SELECT g.GradID as GradID ,d.Ime as ImeDrzave,g.Ime as ImeGrada,g.Cena as Cena FROM drzava d JOIN grad g ON d.DrzavaID=g.DrzavaID;";
         $this->res=Database::getInstance()->conn->query($query);
         if($this->res->num_rows!=0) return "Success";
         

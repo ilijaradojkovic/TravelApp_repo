@@ -1,7 +1,7 @@
 <?php
 
 interface IProducts{
-    function insertGrad();
+    function insertGrad($ImeGrada,$Cena,$DrzavaID);
     function updateGrad();
-    function deleteGrad();
+    function deleteGrad($id);
 }

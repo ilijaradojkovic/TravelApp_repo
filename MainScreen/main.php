@@ -1,7 +1,10 @@
 <?php
 require '../Data/ProductControler.php';
-ProductControl::getInstance()->getAllGradovi();
-$result=ProductControl::getInstance()->res;
+$productContorl=ProductControl::getInstance();
+$productContorl->getAllGradovi();
+$productContorl->getAllDrzave();
+$result=$productContorl->res;
+$drzave=$productContorl->drzave;
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +28,7 @@ $result=ProductControl::getInstance()->res;
 <div id="body">
 <div id="Section1">
     <button class="button addDugme" id="ButtonFunc" >Add</button>
-    <button class="button deleteDugme" id="ButtonFunc" >Delete</button>
-    <button class="button updateDugme" id="ButtonFunc" >Update</button>
+  
 </div>
 <div class="bcg"></div>
 <div id="parentContainer">
@@ -36,12 +38,19 @@ $result=ProductControl::getInstance()->res;
             <div id="Section1D">
                 <form id="form">
                     <input id="text-field" name="Ime" type="text" class="form-control" placeholder="Ime" required>
-                    <input id="text-field" name="Cena" type="text" class="form-control" placeholder="Cena" required>
-                    <input id="text-field" name="DrzavaID" type="text" class="form-control" placeholder="DrzavaID" required>
+                    <input id="text-field" name="Cena" type="number" class="form-control" placeholder="Cena" required>
+                    <select name="Drzave" id="text-field">
+                    <?php while($r=$drzave->fetch_array()):?>
+                        
+                        <option value=<?php echo $r['DrzavaID']; ?>><?php echo $r['Ime'];?></option>
+
+
+                    <?php endwhile;?>
+                    </select>
                 </form>
             </div>
             <div id="Section2D">
-                <button class="button save" id="ButtonFunc" >Save</button>
+                <button class="button save" id="ButtonFunc"  type="submit">Save</button>
                 
                 <button class="button close" id="ButtonFunc" >Close</button>
 
@@ -58,13 +67,14 @@ $result=ProductControl::getInstance()->res;
         
         <div class="card-body text-center mx-auto">
             <div class='cvp'>
-                <h5 class="card-title font-weight-bold" id="TitleText"><?php echo $r['Ime'];  ?> </h5>
+                <h5 class="card-title font-weight-bold" id="TitleText"><?php echo ($r['ImeDrzave']);  echo(" ,"); echo $r['ImeGrada']; ?> </h5>
 
                 <p class="card-text"><?php echo $r['Cena'];  echo "$"; ?> </p>
                
-                <div id="Button">
-          
-                <a href="#" class="btn cart px-auto">ADD TO CART</a>
+                <br>
+                <div id="Buttons">
+                <button class="button deleteDugme"  id="ButtonFunc" onclick="DeleteClicked('<?php echo($r['GradID']);?>');" >Delete</button>
+                    <button class="button updateDugme" id="ButtonFunc" >Update</button>
 
                 </div>
             </div>
@@ -76,6 +86,9 @@ $result=ProductControl::getInstance()->res;
 </div>
 </div>
 </div>
+<script>
+
+</script>
 
 </body>
 </html>
