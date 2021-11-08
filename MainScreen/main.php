@@ -37,12 +37,12 @@ $drzave=$productContorl->drzave;
             
             <div id="Section1D">
                 <form id="form">
-                    <input id="text-field" name="Ime" type="text" class="form-control" placeholder="Ime" required>
-                    <input id="text-field" name="Cena" type="number" class="form-control" placeholder="Cena" required>
-                    <select name="Drzave" id="text-field">
+                    <input id="text-field" name="Ime" type="text" class="form-control ime" placeholder="Ime" required>
+                    <input id="text-field" name="Cena" type="number" class="form-control cena"  placeholder="Cena" required>
+                    <select class="combobox" name="Drzave" id="text-field">
                     <?php while($r=$drzave->fetch_array()):?>
                         
-                        <option value=<?php echo $r['DrzavaID']; ?>><?php echo $r['Ime'];?></option>
+                        <option  value=<?php echo $r['DrzavaID']; ?>><?php echo $r['Ime'];?></option>
 
 
                     <?php endwhile;?>
@@ -50,7 +50,7 @@ $drzave=$productContorl->drzave;
                 </form>
             </div>
             <div id="Section2D">
-                <button class="button save" id="ButtonFunc"  type="submit">Save</button>
+                <button class="button save" onclick="Resolve()" id="ButtonFunc"  type="submit">Save</button>
                 
                 <button class="button close" id="ButtonFunc" >Close</button>
 
@@ -74,7 +74,7 @@ $drzave=$productContorl->drzave;
                 <br>
                 <div id="Buttons">
                 <button class="button deleteDugme"  id="ButtonFunc" onclick="DeleteClicked('<?php echo($r['GradID']);?>');" >Delete</button>
-                    <button class="button updateDugme" id="ButtonFunc" >Update</button>
+                    <button class="button updateDugme" id="ButtonFunc"  onclick="UpdateClicked('<?php echo($r['GradID']);?>','<?php  echo($r['ImeGrada'])?>','<?php  echo($r['Cena'])?>','<?php  echo($r['DrzavaID'])?>')">Update</button>
 
                 </div>
             </div>

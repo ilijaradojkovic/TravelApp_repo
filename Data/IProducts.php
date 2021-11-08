@@ -2,6 +2,6 @@
 
 interface IProducts{
     function insertGrad($ImeGrada,$Cena,$DrzavaID);
-    function updateGrad();
+    function updateGrad($id,$ime,$cena,$DrzavaID);
     function deleteGrad($id);
 }
