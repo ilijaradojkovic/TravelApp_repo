@@ -7,6 +7,7 @@ class ProductControl implements IProducts{
     private static  $instance=null;
      public $res ;
      public $drzave;
+     public $searchRes;
 
     private function __construct()
     {
@@ -50,5 +51,12 @@ class ProductControl implements IProducts{
         if($this->res->num_rows!=0) return "Success";
         
         else return "Failed";
+    }
+    function searchData($searchQuery){
+        $query="SELECT g.GradID as GradID ,d.Ime as ImeDrzave,g.Ime as ImeGrada,g.Cena as Cena,d.DrzavaID as DrzavaID FROM drzava d JOIN grad g ON d.DrzavaID=g.DrzavaID WHERE g.Ime LIKE '%$searchQuery%'";
+   $this->res=Database::getInstance()->conn->query($query);
+        if($this->res->num_rows!=0) return 1;
+        
+        else return -1;
     }
 }

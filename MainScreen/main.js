@@ -8,13 +8,11 @@ function DeleteClicked(id) {
        
     });
     req.done(function(r){
-         if(r==1){
-            location.reload(true);
-         }
-         else alert("Greska u brisanju");
+        $('#Content').html(r);
     })
 }
-function UpdateClicked(id,ime,cena,idDrzave){
+
+function UpdateClicked(id,cena,idDrzave,ime){
     console.log("update");
     $(".ime").val(ime);
     $(".cena").val(cena);
@@ -53,21 +51,17 @@ function UpdateItem(){
     
     req.done(function(r){
           
-        if(r==1) {
-                
-            CloseDialog();
-            location.reload(true);
-        }
-        else alert("Greska");
+        $('#Content').html(r);
+        CloseDialog();
     })
-    console.log("save clicked");
+  
 }
 function AddItem(){
     const $form = $("#form");
     
     const $inputs = $form.find('input, select, button, textarea');
     const serijalizacija = $form.serialize();
-    //ovo je dialog save dugme on radi add ali hocemo da namestimo da radi add ili update
+    
     
     req=$.ajax({
         url: 'SaveGrad.php',
@@ -76,26 +70,51 @@ function AddItem(){
        
     });
     req.done(function(r){
-            if(r==1) {
-                
-                CloseDialog();
-                location.reload(true);
-            }
-            else alert("Greska");
+        $('#Content').html(r);
+        CloseDialog();
     })
-    console.log("save clicked");
+   
     
     
 }
 
+
 $(document).ready(function(){
+
+    getAllData();
+
+    function getAllData(){
+      let text="";
+        req=$.ajax({
+            url: 'SearchGrad.php',
+            type: 'POST',
+            data:{'SearchText':text},
+           
+        });
+        req.done(function(r){
+            $('#Content').html(r);
+    
+        })
+    }
 
     $(".UpdateMe").click(function(){
 
         console.log("c");
     });
   
- 
+    $('#searchText').on('input',function(e){
+    let text=$('#searchText').val();
+    req=$.ajax({
+        url: 'SearchGrad.php',
+        type: 'POST',
+        data:{'SearchText':text},
+       
+    });
+    req.done(function(r){
+        $('#Content').html(r);
+
+    })
+    });
     $(".addDugme").click(function(){
        
       
@@ -106,6 +125,7 @@ $(document).ready(function(){
        
     });
    
+  
  
 
  

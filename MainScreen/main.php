@@ -1,7 +1,7 @@
 <?php
 require '../Data/ProductControler.php';
 $productContorl=ProductControl::getInstance();
-$productContorl->getAllGradovi();
+//$productContorl->getAllGradovi();
 $productContorl->getAllDrzave();
 $result=$productContorl->res;
 $drzave=$productContorl->drzave;
@@ -13,6 +13,7 @@ $drzave=$productContorl->drzave;
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
 <script src="main.js"></script>
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="../dialog/style.css">
 <link rel="stylesheet" href="buttonStyle.css">
@@ -26,6 +27,15 @@ $drzave=$productContorl->drzave;
 <body>
 
 <div id="body">
+    
+<div class="headerBar">
+    <form class="TopBar">
+    <div class="form-group">
+		<input type="text" name="searchTextField" class="form-control" id="searchText" placeholder="Username" required>
+	</div>
+    </form>
+
+</div>
 <div id="Section1">
     <button class="button addDugme" id="ButtonFunc" >Add</button>
   
@@ -58,37 +68,16 @@ $drzave=$productContorl->drzave;
 </div>
 </div>
 
+
 <div id="Section2">
     <div id="Content">
     
-<?php if($result!=null) while($r=$result->fetch_array()):?>
-    <div class="card mx-auto col-md-3 col-10 mt-5"> 
-        <img class='mx-auto img-thumbnail' src="istockphoto-1272766574-170667a.jpg" width="auto" height="auto" />
-        
-        <div class="card-body text-center mx-auto">
-            <div class='cvp'>
-                <h5 class="card-title font-weight-bold" id="TitleText"><?php echo ($r['ImeDrzave']);  echo(" ,"); echo $r['ImeGrada']; ?> </h5>
 
-                <p class="card-text"><?php echo $r['Cena'];  echo "$"; ?> </p>
-               
-                <br>
-                <div id="Buttons">
-                <button class="button deleteDugme"  id="ButtonFunc" onclick="DeleteClicked('<?php echo($r['GradID']);?>');" >Delete</button>
-                    <button class="button updateDugme" id="ButtonFunc"  onclick="UpdateClicked('<?php echo($r['GradID']);?>','<?php  echo($r['ImeGrada'])?>','<?php  echo($r['Cena'])?>','<?php  echo($r['DrzavaID'])?>')">Update</button>
+</div>
+</div>
+</div>
+</div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-<?php endwhile; ?>
-</div>
-</div>
-</div>
-</div>
-<script>
-
-</script>
 
 </body>
 </html>

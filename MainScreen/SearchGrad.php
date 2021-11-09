@@ -1,10 +1,8 @@
 <?php
 require '../Data/ProductControler.php';
-$id=$_POST['id'];
-$instanca=ProductControl::getInstance();
-$instanca->deleteGrad($id);
-$instanca->searchData("");
-
+    $searchText=$_POST['SearchText'];
+    $instanca=ProductControl::getInstance();
+    $dalijeuspenso=$instanca->searchData($searchText);
 $data="";
 
 
@@ -21,7 +19,7 @@ while($instanca->res!=null && $r=$instanca->res->fetch_array()){
            
             <br>
             <div id="Buttons">
-            <button class="button deleteDugme"  id="ButtonFunc" onclick="DeleteClicked( '.$r['GradID'].');" >Delete</button>
+            <button class="button deleteDugme"  id="ButtonFunc"  onclick="DeleteClicked( '.$r['GradID'].');" >Delete</button>
             <button class="button updateDugme"  id="ButtonFunc"  onclick=" UpdateClicked('.$r['GradID'].','.$r['Cena'].','.$r['DrzavaID'].',\''.$r['ImeGrada'].'\')">Update</button>
 
             </div>
