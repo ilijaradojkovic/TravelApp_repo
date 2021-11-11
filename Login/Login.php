@@ -2,7 +2,8 @@
 require '../Data/UserControler.php';
 $username=$_POST['username'];
 $password=$_POST['password'];
-$res=UserControler::getInstance()->tryToLogin($username,$password);
+$userControler=new UserControler();
+$res=$userControler->tryToLogin($username,$password);
 
 echo $res;
 

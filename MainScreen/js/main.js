@@ -13,7 +13,7 @@ function DeleteClicked(id) {
 }
 
 function UpdateClicked(id,cena,idDrzave,ime){
-    console.log("update");
+   
     $(".ime").val(ime);
     $(".cena").val(cena);
     $(".combobox").get(0).selectedIndex = idDrzave-1;
@@ -97,10 +97,6 @@ $(document).ready(function(){
         })
     }
 
-    $(".UpdateMe").click(function(){
-
-        console.log("c");
-    });
   
     $('#searchText').on('input',function(e){
     let text=$('#searchText').val();
@@ -119,7 +115,7 @@ $(document).ready(function(){
        
       
        
-        console.log("add");
+       
         $(".save").addClass("AddMe");
         showDialog();
        
@@ -131,9 +127,7 @@ $(document).ready(function(){
  
 
     $(".close").click(function(){ 
-        $(".ime").val("");
-        $(".cena").val(0);
-        $(".combobox").get(0).selectedIndex = 0;  
+     
 
         CloseDialog();
     });
@@ -147,7 +141,9 @@ function showDialog(){
   $(".bcg").addClass("active");
  }
  function CloseDialog(){
-        
+    $(".ime").val("");
+    $(".cena").val(0);
+    $(".combobox").get(0).selectedIndex = 0;  
     $(".Container").removeClass("active");
   $(".bcg").removeClass("active");
   $(".save").removeClass("UpdateMe");

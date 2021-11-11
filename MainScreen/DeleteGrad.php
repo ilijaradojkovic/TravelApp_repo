@@ -11,7 +11,7 @@ $data="";
 while($instanca->res!=null && $r=$instanca->res->fetch_array()){
     $data.='  
     <div class="card mx-auto col-md-3 col-10 mt-5"> 
-    <img class="mx-auto img-thumbnail" src="istockphoto-1272766574-170667a.jpg" width="auto" height="auto" />
+    <img class="mx-auto img-thumbnail" src="resources/cityImg.jpg" width="600px" height="50%" />
     
     <div class="card-body text-center mx-auto">
         <div class="cvp">
