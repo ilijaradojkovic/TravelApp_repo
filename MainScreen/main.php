@@ -1,7 +1,6 @@
 <?php
 require '../Data/ProductControler.php';
 $productContorl=ProductControl::getInstance();
-//$productContorl->getAllGradovi();
 $productContorl->getAllDrzave();
 $result=$productContorl->res;
 $drzave=$productContorl->drzave;
@@ -31,7 +30,7 @@ $drzave=$productContorl->drzave;
 <div class="headerBar">
     <form class="TopBar">
     <div class="form-group">
-		<input type="text" name="searchTextField" class="form-control" id="searchText" placeholder="Username" required>
+		<input type="text" name="searchTextField" class="form-control" id="searchText" placeholder="Name" required>
 	</div>
     </form>
 
